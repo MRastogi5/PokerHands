@@ -51,8 +51,6 @@ public class Hand {
     public String[] getSuitValues(){
         this.getCards();
         List<String> s = new ArrayList<>();
-
-
         Arrays.stream(this.getCards()).forEach((k) -> { System.out.print(k + "-");});//6D8H5D5C3S
         Arrays.stream(this.getCards()).forEach((k) -> { s.add(String.valueOf(k.charAt(1)));
         });

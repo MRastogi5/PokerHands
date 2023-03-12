@@ -9,15 +9,36 @@ public class PokerHand {
         System.out.println("Hello world!");
     }
 
-    public String checkPokerHands(Hand... hands){
+    public String checkPokerHands(Hand black, Hand white){
+//TODO check input is empty?
 
-        if(hands[0].isSameHands(hands[1])){
+        if(black.isSameHands(white)){
             return "Invalid";
         }
-
-        if(hands[0].isSimilarHands(hands[1])){
+        else if(black.isSimilarHands(white)){
             return "Tie";
         }
+        return getWinningHand(black, white)+" wins";
+
+    }
+
+    private String getWinningHand(Hand black, Hand white) {
+        checkCombination(black);
+
         return "";
     }
+
+    private void checkCombination(Hand handValue) {
+        //straightFlush
+        isStraightflush(handValue);
+        isFourOfAKind(handValue);
+        isFullHouse(handValue);
+        isFlush(handValue);
+        isStraight(handValue);
+        isThreeOfAKind(handValue);
+        hasTwoPairs(handValue);
+        hasPair(handValue);
+
+    }
+
 }
